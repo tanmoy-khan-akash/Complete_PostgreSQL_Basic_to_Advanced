@@ -75,7 +75,8 @@
 - INNER JOIN  
 - LEFT JOIN  
 - RIGHT JOIN  
-- FULL JOIN  
+- FULL JOIN
+- CROSS JOIN
 - SELF JOIN  
 - JOINS in SQL  
 
@@ -92,8 +93,11 @@
 - DELETE  
 
 #### **6.2 Table Alteration**
-- ALTER  
-- ALTER COLUMN (PostgreSQL)  
+- ALTER (Existing Table Name Change, Existing Table ADD COLUMN, Existing Table COLUMN DELETE) / Means that, TABLE MODIFY
+- ALTER COLUMN (COLUMN ADD, COLUMN RENAME, etc..)
+- ALTER TABLE (RENAME TABLE NAME)
+- DROP COLUMN
+  
 - TRUNCATE 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -105,10 +109,11 @@
 - SQL ANY, ALL  
 - SQL CASE Statement
 - SQL CASE Expression 
-- SQL Null Functions (COALESCE, NULLIF)  
-- SQL Subqueries
-- SQL WINDOWS FUNCTION
-- SQL Views  
+- SQL Null Functions (COALESCE, NULLIF) 
+- SQL Subqueries 
+- SQL COMMON TABLE EXPRESSION (CTE) 
+- SQL WINDOW FUNCTION
+- SQL Views 
 - SQL Stored Procedures (PostgreSQL Functions)  
 - SQL Comments  
 - SQL Operators  
