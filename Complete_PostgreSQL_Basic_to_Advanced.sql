@@ -1,6 +1,8 @@
 
+--- DATABASE CREATE 
 CREATE DATABASE teacher_db;
 
+--- SCHEMA CREATE 
 CREATE SCHEMA teacher;
 
 --- TABLE CREATE
@@ -58,6 +60,7 @@ CREATE TABLE teacher.khan_academy
 	time_add TIMESTAMP DEFAULT NOW()
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.khan_academy (teacher_name, course_name, duration_month, seat)
 VALUES
 ('Fahim Ahmed', 'Data Science', 4, 25),
@@ -80,6 +83,7 @@ CREATE TABLE teacher.students
 	gpa NUMERIC
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.students (name, age, course, gpa)
 VALUES
 ('Alif Hasan', 20, 'English', NULL),
@@ -292,20 +296,20 @@ FROM teacher.students AS stu;
 
 --- ALL 5 FUNCTION IN ONE QUERY 
 SELECT 
-	COUNT(*) AS total,
-	SUM(age) AS sum_age,
-	ROUND(AVG(gpa), 4) AS avg_gpa,
-	MAX(gpa) AS top_gpa,
-	MIN(age) AS youngest
+COUNT(*) AS total,
+SUM(age) AS sum_age,
+ROUND(AVG(gpa), 4) AS avg_gpa,
+MAX(gpa) AS top_gpa,
+MIN(age) AS youngest
 FROM teacher.students;
 
 
 --- GROUP BY 
 SELECT 
-	COUNT(*) AS student_count,
-	ROUND(AVG(gpa), 2) AS avg_gpa
-	FROM teacher.students
-	GROUP BY course;
+COUNT(*) AS student_count,
+ROUND(AVG(gpa), 2) AS avg_gpa
+FROM teacher.students
+GROUP BY course;
 
 
 SELECT course, COUNT(*) AS students_count, ROUND(AVG(gpa), 2) AS avg_gpa
@@ -541,7 +545,7 @@ VALUES
 ('Sinthiya Tanzila', 26, 'EEE', 4.00);
 
 
--- WHEN CREAT TABLE teacher.students_info THAT TIME WE USE CHECK CONSTRAINT, LIKE THAT BELOW
+-- WHEN CREATE TABLE teacher.students_info THAT TIME WE USE CHECK CONSTRAINT, LIKE THAT BELOW
 
 -- CREATE TABLE teacher.students_info
 -- 		stu_id 	SERIAL PRIMARY KEY,
@@ -562,6 +566,7 @@ SELECT * FROM teacher.students;
 --- --- MANY TO MANY (MANY : MANY) 
 
 
+
 --- --- ONE TO ONE (1 : 1) (Table A, 1 Row & Table B, 1 Row Connection)
 --- CREATE TABLE 1:1 (TABLE A) 
 CREATE TABLE teacher.students_1to1
@@ -571,6 +576,7 @@ CREATE TABLE teacher.students_1to1
 	email VARCHAR
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.students_1to1 (student_name, email)
 VALUES
 ('Sakib Sheikh', 'sakib.sheikh@gmail.com'),
@@ -593,6 +599,7 @@ CREATE TABLE teacher.students_profile
 	FOREIGN KEY (student_id) REFERENCES teacher.students_1to1(student_id) ON DELETE CASCADE
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.students_profile (student_id, bio, linkedin)
 VALUES
 (1, 'loves English course', 'linkedin.com/in/sakibsheikh'),
@@ -617,6 +624,7 @@ CREATE TABLE teacher.course
 	teacher VARCHAR NOT NULL
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.course (course_name, teacher)
 VALUES
 ('Data Science', 'Nazmus Sakib'),
@@ -635,6 +643,7 @@ CREATE TABLE teacher.learner
 	FOREIGN KEY (course_id) REFERENCES teacher.course(course_id)   -- FK constraint
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.learner (learner_name, course_id)
 VALUES
 ('Sakib Sheikh', 1),
@@ -675,6 +684,7 @@ CREATE TABLE teacher.learner_course
 	course_id INT
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.learner_course (learner_id, course_id)
 VALUES
 (1, 1),
@@ -713,6 +723,8 @@ CREATE TABLE teacher.customer
 	last_name VARCHAR,
 	address_id INT
 );
+
+--- VALUE INSERT
 INSERT INTO teacher.customer (first_name, last_name, address_id)
 VALUES
 ('Mary', 'Smith', 5),
@@ -729,6 +741,8 @@ CREATE TABLE teacher.payment
 	mode VARCHAR,
 	payment_date DATE
 );
+
+--- VALUE INSERT
 INSERT INTO teacher.payment (amount, mode, payment_date)
 VALUES
 (60, 'Cash', '2020-09-24'),
@@ -830,13 +844,17 @@ CREATE TABLE teacher.employee
 	employee_name VARCHAR,
 	manager_id INT
 );
+
+--- VALUE INSERT
 INSERT INTO teacher.employee (employee_name, manager_id)
 VALUES
 ('Usha Khan', 3),
 ('Samiya Khan', 4),
 ('Rafi Khan', 2),
 ('Nizum Khan', 3);
+
 SELECT * FROM teacher.employee;
+
 
 
 --- SELF JOIN 	-- (LEFT, RIGHT, FULL, CROSS) - (ARE USED IN SALEF JOIN))
@@ -859,6 +877,7 @@ ON emp2.employee_id = emp1.manager_id;
 
 
 
+
 --- --- --- UNION & UNION ALL
 --- CREATE TABLE 1
 CREATE TABLE teacher.customerA
@@ -866,6 +885,8 @@ CREATE TABLE teacher.customerA
 	customer_name VARCHAR,
 	customer_amount INT
 );
+
+--- VALUE INSERT
 INSERT INTO teacher.customerA (customer_name, customer_amount)
 VALUES
 ('Madan Mohan', 2100),
@@ -879,6 +900,8 @@ CREATE TABLE teacher.customerB
 	customer_name VARCHAR,
 	customer_amount INT
 );
+
+--- VALUE INSERT
 INSERT INTO teacher.customerB (customer_name, customer_amount)
 VALUES
 ('Gopal Bhat', 1500),
@@ -972,7 +995,7 @@ FROM my_cte;
 --- CREATE TABLE
 CREATE TABLE teacher.test_data
 (
-	new_id INT ,
+	new_id INT,
 	new_cat VARCHAR
 );
 
@@ -1133,6 +1156,7 @@ CREATE TABLE teacher.students_2
 	numbers INT[] -- ARRAY TYPE
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.students_2 (student_name, subject_name, numbers)
 VALUES
 ('Akash', 'Bangla', '{90, 85, 71}'),
@@ -1208,6 +1232,7 @@ CREATE TABLE teacher.section
 	enrolled_students INT[]
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.section (section_name ,enrolled_students)
 VALUES
 ('sec a', '{1,2}'),
@@ -1251,6 +1276,7 @@ CREATE TABLE teacher. profile
 	user_data JSONB
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.profile (user_data)
 VALUES
 ('{
@@ -1362,6 +1388,7 @@ CREATE TABLE teacher.sales
 	quarter INT
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.sales (year, quarter, amount)
 VALUES
 (2023, 1, 300),
@@ -1587,6 +1614,7 @@ CREATE TABLE teacher.dept
 	location INT
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.dept (dept_info, location)
 VALUES
 (('English', 765, 'This dept was created for bla bla bla'), 76547),
@@ -1611,6 +1639,7 @@ CREATE TABLE teacher.emotions
 	human_name VARCHAR
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.emotions (emotion, human_name)
 VALUES
 ('happy', 'Mr X'),
@@ -1647,6 +1676,7 @@ CREATE TABLE teacher.call_history
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.call_history(duration, _user)
 VALUES
 ('[10:20, 10:28)', 76576),
@@ -1681,6 +1711,7 @@ CREATE TABLE teacher.auto_generated_qa
 	update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+--- VALUE INSERT
 INSERT INTO teacher.auto_generated_qa (qa, qa_added_by)
 VALUES
 (('What''s your cat name?', 'Sequel'), 67456),
