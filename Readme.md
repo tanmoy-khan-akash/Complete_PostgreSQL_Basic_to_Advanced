@@ -3,31 +3,44 @@
 ### 📘 Module 1 – Database Fundamentals
 
 #### **1.1 Introduction to SQL**
-- What is a database?
-- Types of databases  
-- SQL/ NoSQL Database structure
-- Database Servers Vs. Database
-- On-Premises Server vs Cloud Server
+- What is SQL?
+- SQL/ NoSQL Database structure 
+- Database Servers Vs. Database 
+- SQL 5 types of SQL Commands 
+- SQL Writing Sequence 
+- What is a database? 
+- Types of databases 
 
 #### **1.2 PostgreSQL Setup**
 - Install PostgreSQL  
 - Install pgAdmin  
-- Create the first database  
-- Create first table 
+- Install TablePlus (Advanced)
+- Install DBeaver (Advanced) 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 📘 Module 2 – SQL Essentials
 
 #### **2.1 Core Syntax**
-- PostgreSQL data types  
-- SQL syntax  
+- Data Types
+- Primary and Foreign Keys
+- Constraints   
+- SQL syntax
 - SQL statements (DDL, DML basics)  
 - Types of SQL commands  
 
 #### **2.2 Basic Queries**
-- SELECT  
-- SELECT DISTINCT  
-- Aliases 
+- SELECT -> FROM -> WHER -> GROUP BY -> HAVING -> ORDER BY -> LIMIT
+
+- Creating Database & Tables
+- Insert, Update, Delete Values in Table
+- Alter, Drop & Truncate Table
+- SELECT Statement & WHERE CLAUSE
+
+#### **2.3 Operators in SQL** 
+- Arithmetic operators
+- Comparison operators
+- Logical operators
+- Bitwise operators 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 📘 Module 3 – Filtering & Sorting
@@ -47,18 +60,41 @@
 - ORDER BY + LIMIT 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-### 📘 Module 4 – Aggregation & Grouping
+### 📘 Module 4 – String, Aggregation, Grouping & TIMESTAMPS & EXTRACT 
 
-#### **4.1 Aggregate Functions**
+#### **4.1 String Functions**
+- UPPER 
+- LOWER 
+- LENGTH
+- SUBSTRING 
+- NOW 
+- FORMAT  
+- CONCAT 
+- REPLACE 
+- TRIM
+
+#### **4.2 Aggregate Functions**
 - COUNT  
 - SUM  
 - AVG  
 - MIN  
-- MAX  
+- MAX
 
-#### **4.2 Grouping**
+-> ROUND()
+
+#### **4.3 Grouping / GROUP BY & HAVING CLAUSE**
 - GROUP BY  
-- HAVING 
+- HAVING
+
+
+- DISTINCT
+- LIMIT
+- LIKE
+
+#### **4.4 TIMESTAMPS & EXTRACT** 
+- TIMESTAMP
+- TIMESTAMP functions/operators
+- EXTRACT Function 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 📘 Module 5 – Joins & Relationships
@@ -82,7 +118,7 @@
 
 #### **5.3 Set Operations**
 - UNION  
-- UNION ALL 
+- UNION ALL
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 📘 Module 6 – Data Modification Commands
